@@ -46,7 +46,6 @@ app.post('/signup',(req,res)=>{
         try{
         const document=await hash();
         const data= await document.save();
-        console.log(data);
         res.redirect('/');
 
         }catch(err){
@@ -101,7 +100,6 @@ app.get('/quiz',(req,res)=>{
         const actual = await data.json();
         const ans =Object.values(actual[0].correct_answers);
         const answers=["answer_a","answer_b","answer_c","answer_d","answer_e","answer_f"];
-        console.log(ans);
         res.render('quizpage1',{
             quizdata:actual[0],
             category:category,

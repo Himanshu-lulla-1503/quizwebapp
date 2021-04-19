@@ -5,7 +5,7 @@ const path = require('path');
 const bcrypt = require('bcryptjs');
 const signup=require('./database/conn.js');
 const mongoose= require('mongoose');
-const port= 8000 || process.env.PORT;
+const port= process.env.PORT || 8000;
 app.set('view engine','hbs');
 app.use(express.json());
 app.use(express.urlencoded({extended:false}));

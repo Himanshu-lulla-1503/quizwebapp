@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Login</title>
+	<meta name="viewport" content="width=device-width,initial-scale=1.0,shrink-to-fit=no">
+		<meta charset="UTF-08">
+		<title>CNBJ|HOME</title>
+		<!--Boostrap 4 cdn link -->
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+		<!-- jQuery library -->
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+		<!-- Popper JS -->
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+		<!-- Latest compiled JavaScript -->
+		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
+		<link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+	    <link rel="icon" type="logo/png" href="img/loginlogo.png">
+	    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+	    <style type="text/css">
+	    	.custom{
+	    		position: absolute;
+	    		top: 50%;
+	    		left: 50%;
+	    		transform: translate(-50%,-50%);
+	    	}
+	    	.custombtn{
+	    		border-radius: 15px;
+	    	}
+	    	@media only screen and (max-width: 500px){
+	    		#group1{
+	    			width:70vw !important;
+	    		}
+	    		#group2{
+	    			width:70vw !important;
+	    		}
+	    	}
+	    </style>
+</head>
+</head>
+<body>
+	<div class="container">
+		<div class="row align-items-center">
+			<div class="col-md-6 col-10 border shadow-lg custom">
+				<img src="img/quizapplogo.jpg" alt="This is a logo" class="img-fluid m-auto d-block w-50 h-50 ">
+				<form action="/" method="POST">
+				<div class="input-group w-50 mx-auto mt-3 shadow-md" id="group1">
+					<div class="input-group-prepend ">
+						<span class="input-group-text"><i class="fa fa-user fa-lg" aria-hidden="true"></i></span>
+					</div>
+					<input type="email" name="username" id="name" class="form-control" placeholder="Enter your email" required>
+					<span id="span1" class="text-danger font-weight-bold">**Username len must be in between 3 and 30</span>
+				</div>
+				<div class="input-group mt-3 w-50 mx-auto mb-3 shadow-md" id="group2">
+					<div class="input-group-prepend ">
+						<span class="input-group-text"><i class="fa fa-lock fa-lg" aria-hidden="true"></i></span>
+					</div>
+					<input type="password" name="password" id="pass" class="form-control" placeholder="Enter your password" required >
+				</div>
+<div class="custom-control custom-checkbox w-50  mx-auto mb-3">
+	<input type="checkbox" class="custom-control-input" id="customCheck">
+	<label class="custom-control-label" for="customCheck">Show Password</label>
+
+</div>
+<div class="mx-auto w-50 mb-3">
+	<a href="/signup">New User? Sign-Up</a>
+</div>
+
+				<div class="w-50 mx-auto mb-3 ">
+					<input type="submit" class="btn btn-success w-100 custombtn" value="Login">
+				</div>
+			</form>
+			</div>
+		</div>
+	</div>
+<script type="text/javascript">
+    {{#if flag}}
+	alert('Invalid Credentials');
+	{{/if}}
+	$(document).ready(function(){
+		$('#span1').hide();
+		$('#name').keyup(function(){
+			var a=$('#name').val();
+			if(a.length>3 && a.length<30){
+				$('#span1').hide();
+			}
+			else{
+				$('#span1').show();
+			}
+
+		});
+
+		$('#customCheck').click(function(){
+			if($('#pass').attr('type')=='password'){
+				$('#pass').attr('type','text');
+			}
+			else{
+				$('#pass').attr('type','password');
+				
+			}
+		});	
+	});
+</script>
+
+
+</body>
+</html>

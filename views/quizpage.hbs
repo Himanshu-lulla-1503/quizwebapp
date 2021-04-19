@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{category}} Quiz</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+		<!-- jQuery library -->
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+		<!-- Popper JS -->
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+		<!-- Latest compiled JavaScript -->
+		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
+		<link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+	    <link rel="icon" type="logo/png" href="img/loginlogo.png">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.5.0-2/css/all.min.css" integrity="sha512-uNOFYDWi8Y7/BN/9S2QDx/BVTEvSwdrZ53NHLgt+fDTdyQeOwmBpHrLrxOT3TQn78H0QKJWLvD7hsDOZ9Gk45A==" crossorigin="anonymous" />
+	    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        <link rel="preconnect" href="https://fonts.gstatic.com">
+        <link href="https://fonts.googleapis.com/css2?family=Oswald&display=swap" rel="stylesheet">
+        <style>
+            *{
+                margin: 0;
+                padding: 0;
+                box-sizing: border-box;
+            }
+            .main{
+                min-height: 90vh;
+                min-width: 100%;
+            }
+            .custombtn{
+                border:0.5px solid #007bff!important; 
+            }
+            .custombtn:hover{
+                background:#C1F1ED;
+                transition: 0.2s;
+            }
+            #preloader{
+                height: 100vh;
+                width: 100%;
+                position: fixed;
+	    		background: #000 url('https://media.giphy.com/media/N256GFy1u6M6Y/giphy.gif');
+	    		background-repeat: no-repeat;
+	    		background-position: center;
+                z-index: 99999;
+            }
+             #collapsibleNavId>ul>li>a{
+                font-size:1.2rem !important;
+                
+            }
+              #collapsibleNavId>ul>li>a:hover{
+                border-bottom:2px solid red;
+
+            }
+            .navbar-brand{
+                font-size:1.5rem;
+               font-family: 'Oswald', sans-serif;
+            }
+
+        </style>
+</head>
+<body onload="preloader()">
+    <div id="preloader"></div>
+    <div class="container-fluid">
+    <div class="row">
+    <nav class="navbar navbar-expand-sm navbar-dark bg-dark w-100">
+         <h1 class="navbar-brand text-white font-weight-bold"><span style="color:#c82333 !important;">Q</span>uiz<span style="color:#c82333 !important;">F</span>est</h1>
+        <button class="navbar-toggler d-lg-none" type="button" data-toggle="collapse" data-target="#collapsibleNavId" aria-controls="collapsibleNavId"
+            aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="collapsibleNavId">
+            <ul class="navbar-nav ml-auto mt-2 mt-lg-0">
+                <li class="nav-item">
+                    <a class="nav-link mr-md-3 disabled text-white" href="#">Quiz</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link mr-md-3 text-white" href="/homepage">Home</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+    </div>
+    </div>
+    <div class="d-flex justify-content-center align-items-center main">
+    <div class="container shadow-lg">
+        <div class="row d-block">
+            <h1 class="text-center text-capitalize display-4 mb-md-5 mb-3">{{category}} quiz</h1>
+            <div class="question ml-3 d-flex align-items-center flex-column">
+            <h5 class="display-5 text-capitalize my-3">Q){{quizdata.question}}</h5>
+            <button class="btn btn-block custombtn w-md-50 w-75" id="answer_a" onclick="compare(this.id)" >{{quizdata.answers.answer_a}}</button>
+            <button class="btn btn-block custombtn w-md-50 w-75" id="answer_b"  onclick="compare(this.id)" >{{quizdata.answers.answer_b}}</button>
+            <button class="btn btn-block custombtn w-md-50 w-75" id="answer_c"  onclick="compare(this.id)">{{quizdata.answers.answer_c}}</button>
+            <button class="btn btn-block custombtn w-md-50 w-75" id="answer_d"  onclick="compare(this.id)">{{quizdata.answers.answer_d}}</button>
+            <button class="btn btn-block custombtn w-md-50 w-75" id="answer_e"  onclick="compare(this.id)">{{quizdata.answers.answer_e}}</button>
+            <button class="btn btn-block custombtn w-md-50 w-75" id="answer_f" onclick="compare(this.id)">{{quizdata.answers.answer_f}}</button>
+            </div>
+            <div class="btns d-flex justify-content-between p-3 mt-md-5 mt-3">
+            <button class="btn btn-primary" onclick="getans()">Check answer</button>
+            <a href="/homepage" class="btn btn-danger">Back To Home</a>
+            <a href="/quiz?category={{category}}" class="btn btn-success ">Next Question</a>
+
+            </div>
+           
+        </div>
+    </div>
+    </div>
+<script>
+    $(document).ready(()=>{
+        const a  = document.querySelectorAll('button');
+        a.forEach((ele,index)=>{
+            if(ele.innerHTML==''){
+                ele.style.display="none";
+            }
+        });
+    });
+    const compare = async(id)=>{
+        try{
+            const ans = await "{{correctans}}";
+            if(ans===id){
+                console.log(id);
+                document.getElementById(id).style.background="green";
+                 document.getElementById(id).style.color="white";
+            }
+            else{
+                  document.getElementById(ans).style.background="green";
+                   document.getElementById(id).style.background="red";
+                   document.getElementById(id).style.color="white";
+                    document.getElementById(ans).style.color="white";
+                 
+                  
+            }
+            
+        }catch(err){
+            console.log(err);
+        }
+    }
+    const getans = async()=>{
+        try{
+            const ans = await "{{correctans}}";
+            console.log(ans);
+            document.getElementById(ans).style.background="green";
+            document.getElementById(ans).style.color="white";
+        }catch(err){
+            console.log(err);
+        }
+
+    }
+    function preloader(){
+        document.getElementById('preloader').style.display='none';
+    }
+</script>
+</body>
+</html>

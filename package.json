@@ -1,0 +1,20 @@
+{
+  "name": "quizwebapp",
+  "version": "1.0.0",
+  "description": "A basic quiz web app using javascript framework as backend",
+  "main": "index.js",
+  "scripts": {
+    "start": "nodemon index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Himanshu Lulla",
+  "license": "ISC",
+  "dependencies": {
+    "bcryptjs": "^2.4.3",
+    "express": "^4.17.1",
+    "hbs": "^4.1.1",
+    "mongoose": "^5.12.2",
+    "node-fetch": "^2.6.1",
+    "nodemon": "^2.0.7"
+  }
+}

@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Form</title>
+	<meta name="viewport" content="width=device-width,initial-scale=1.0,shrink-to-fit=no">
+		<meta charset="UTF-08">
+		<title>CNBJ|HOME</title>
+		<!--Boostrap 4 cdn link -->
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+		<!-- jQuery library -->
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+		<!-- Popper JS -->
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+		<!-- Latest compiled JavaScript -->
+		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
+		<link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+	    <link rel="icon" type="logo/png" href="img/loginlogo.png">
+	    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+	    <style type="text/css">
+	    		.custom{
+	    		position: absolute;
+	    		top: 50%;
+	    		left: 50%;
+	    		transform: translate(-50%,-50%);
+	    	}
+	    	
+	    </style>
+</head>
+<body>
+	<div class="container">
+		<div class="row">
+		<div class="col-md-10 col-12 mx-auto shadow-lg custom">
+			<h1 class="display-4 text-center text-dark mb-5">Sign-Up</h1>
+			<form action="/signup" method="post">
+			<div class="input-group mb-4">
+			<div class="input-group-prepend">
+			<label for="name"><i class="fa fa-user fa-2x pr-3" aria-hidden="true"></i></label>
+		    </div>
+			<input type="text" class="form-control p-2 w-75" placeholder="Enter your name here" name="name" id="name" required>
+		    </div>
+		    <div class="input-group mb-4">
+		    	<div class="input-group-prepend">
+			        <label for="email"><i class="fa fa-envelope fa-2x pr-3" aria-hidden="true"></i></label>
+		         </div>
+			<input type="email" class="form-control p-2 w-75" placeholder="Enter your email-id here" name="email" id="email"  required>
+		    </div>
+		    <div class="input-group mb-4">
+		    	<div class="input-group-prepend">
+			        <label for="phoneno"><i class="fa  fa-phone-square fa-2x pr-3" aria-hidden="true"></i></label>
+		        </div>
+			<input type="text" class="form-control p-2 w-75" placeholder="Enter your phone-no here" name="phoneno" id="phoneno"  required>
+		    </div>
+		    <div class="input-group mb-4">
+		    	<div class="input-group-prepend">
+			        <label for="password"><i class="fa fa-unlock-alt fa-2x pr-3" aria-hidden="true"></i></label>
+		        </div>
+			<input type="password" class="form-control p-2 w-75" placeholder="Create a password " name="password" id="password"  required>
+			<span class="form-check mt-2 ml-1 ">
+						<input type="checkbox" class="form-check-input" id="showpassword" onclick="checkpassword()">
+						<label class="form-check-label" for="showpassword">Show Password</label>
+			</span>
+		    </div>
+		    
+		    <div class="input-group mb-4">
+		    	<div class="input-group-prepend">
+		    		<label for="repassword"><i class="fa fa-repeat fa-2x pr-3" aria-hidden="true"></i></label>
+		        </div>
+			<input type="password" class="form-control p-2 w-75" placeholder="Enter your password again" name="repassword" id="repassword"  required>
+			<span class="form-check mt-2 ml-1">
+						<input type="checkbox" class="form-check-input" id="showrepassword" onclick="checkrepassword()">
+						<label class="form-check-label" for="showrepassword">Show Password</label>
+			</span>
+		    </div>
+            <div class=" w-25 mx-auto my-5">
+			<button type="submit" class="btn btn-success py-2 w-100 px-4 text-white  font-weight-bold">Register</button>
+		    </div>
+		</form>
+		</div>
+	</div>
+
+
+	</div>
+	<script type="text/javascript">
+    	function checkrepassword(){
+	var b=document.getElementById('repassword');
+	if(b.type==="password"){
+		b.type="text";
+	}
+	else{
+		b.type="password";
+	}
+}
+    </script>
+    <script type="text/javascript">
+    function checkpassword(){
+	var a=document.getElementById('password');
+	if(a.type==="password"){
+		a.type="text";
+	}
+	else{
+		a.type="password";
+	}
+}
+</script>
+</body>
+</html>

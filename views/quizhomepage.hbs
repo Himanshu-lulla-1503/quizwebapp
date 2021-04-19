@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>QuizFest</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+		<!-- jQuery library -->
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+		<!-- Popper JS -->
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+		<!-- Latest compiled JavaScript -->
+		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.5.0-2/css/all.min.css" integrity="sha512-uNOFYDWi8Y7/BN/9S2QDx/BVTEvSwdrZ53NHLgt+fDTdyQeOwmBpHrLrxOT3TQn78H0QKJWLvD7hsDOZ9Gk45A==" crossorigin="anonymous" />
+		<link rel="stylesheet" type="text/css" href="css/loginpage1.css">
+		<link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+        <style>
+            *{
+                margin: 0;
+                padding: 0;
+                box-sizing: border-box;
+            }
+            html{
+                scroll-behavior: smooth;
+            }
+            nav{
+                background-color:#BDCFCA ;
+
+            }
+            .main{
+                height: 50vh;
+                width: 100%;
+                background-color: #BDCFCA;
+            }
+            .button a{
+                border-radius: 20px;
+                font-size:1.0rem !important;
+            }
+            .navbar-brand{
+                font-size:2.5rem;
+               font-family: 'Oswald', sans-serif;
+            }
+            #collapsibleNavId>ul>li>a{
+                font-size:1.2rem !important;
+                
+                
+            }
+            #collapsibleNavId>ul>li>a:hover{
+                border-bottom:2px solid #3C318F;
+
+            }
+            .button a:hover{
+                transform:translate(2px,2px);
+            }
+            .main>h3,p{
+                font-size: 1.5rem !important;
+
+            }
+            .card{
+                border-radius: 20px !important;
+                border:2px solid #BDCFCA !important;
+                overflow: hidden;
+                box-shadow: 5px 10px 8px #BDCFCA;
+
+            }
+            .card:hover{
+                transform:translate(1px,1px);
+
+            }
+            .card>a{
+                background: #3C318F !important;
+                border-radius: 20px ;
+            }
+            .loadbtn:hover{
+                background:#3C318F !important;
+                color:#fff !important;
+
+            }
+            .footer{
+                
+                background: #BDCFCA;
+            }
+            
+            @media screen and (max-width:1000px){
+                .main>h3,p{
+                    font-size: 1.0rem !important;
+                }
+                .button a{
+                    font-size: 0.7rem !important;
+                }
+            }
+            @media screen and (max-width:577px){
+                .heading{
+                    height: 70% !important;
+                }
+                .main>h3,p{
+                    font-size: 1.0rem !important;
+                }
+                .main>h3>img{
+                    animation:blink 0.2s linear infinite;
+                    transition:0.2s ease;
+
+                }
+                #topics{
+                    font-size: 3.0rem !important;
+                    font-weight: 400;
+                }
+                .loadbtn{
+                    width: 50% !important;
+                }
+                @keyframes blink {
+                    0%{
+                        transform:translate(0px,0px);
+                    }
+                    100%{
+                        transform:translate(100px,100px);
+                    }
+                    
+                }
+
+
+            }
+    
+        
+        </style>
+</head>
+<body>
+    <div class="container-fluid">
+        <div class="row">
+            <nav class="navbar navbar-expand-sm  w-100">
+                <h1 class="navbar-brand text-white font-weight-bold"><span style="color:#3C318F !important;">Q</span>uiz<span style="color:#3C318F !important;">F</span>est</h1>
+                <button class="navbar-toggler d-lg-none" type="button" data-toggle="collapse" data-target="#collapsibleNavId" aria-controls="collapsibleNavId"
+                    aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="collapsibleNavId">
+                    <ul class="navbar-nav ml-auto mt-2 mt-lg-0 text-center">
+                        <li class="nav-item active mr-md-3">
+                            <a class="nav-link text-dark" href="#">Home <span class="sr-only">(current)</span></a>
+                        </li>
+                        <li class="nav-item mr-md-3 mr-0">
+                            <a class="nav-link text-dark" href="#topics">Topics</a>
+                        </li>
+                        <li class="nav-item mr-md-3 mr-0">
+                            <a class="nav-link text-dark" href="#footer">Contact-Us</a>
+                        </li>
+                        <li class="nav-item mr-md-3 mr-0">
+                            <a class="nav-link text-dark" href="/"><i class="fas fa-x fa-sign-out-alt"></i></a>
+                        </li>
+                        
+                    </ul>
+                </div>
+            </nav>
+        </div>
+    </div>
+    <header>
+    <div class="container-fluid main">
+        <div class="row  h-100">
+            <div class="col-sm-5  col-12  h-100 align-items-center heading justify-content-center justify-content-lg-end d-flex flex-column ">
+               <h3 class="display-5 text-center">Still Confused about Your technical knowledge?..<img src="img/emoji.png"  height="40px" width="40px"></h3>
+               <p class="lead font-weight-normal text-center">Enhance Your skills with us.</p>
+               <div class="button d-flex justify-content-center w-100">
+                <a href="#" class="btn btn-warning mr-2 px-md-2 font-weight-normal  headerbtn">Take a random quiz</a>
+                <a href="#topics" class="btn px-md-2 headerbtn font-weight-normal text-white" style="background:#3C318F;">Choose a Specific Topic</a>
+
+               </div>
+               
+            </div>
+            <div class="col-12  col-sm-7 h-100 img-container d-sm-block d-flex">
+                <img src="img/student.svg" alt="Image of a student" class="img-fluid"> 
+            </div>
+
+        </div>
+    </div>
+    </header>
+<div class="container-fluid">
+    <div class="row">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320"><path fill="#BDCFCA" fill-opacity="1" d="M0,32L48,74.7C96,117,192,203,288,250.7C384,299,480,309,576,288C672,267,768,213,864,176C960,139,1056,117,1152,128C1248,139,1344,181,1392,202.7L1440,224L1440,0L1392,0C1344,0,1248,0,1152,0C1056,0,960,0,864,0C768,0,672,0,576,0C480,0,384,0,288,0C192,0,96,0,48,0L0,0Z"></path></svg>
+</div>
+</div>
+
+
+<section>
+    <div class="container-fluid py-5 py-sm-0" id="maindiv">
+        <h3 class="display-2 text-center  my-5" id="topics">Our Top Topics</h3>
+        <div class="row">
+            <div class="col-md-4 col-12 mb-3 mb-md-4">
+            <div class="card text-center ">
+                <img src="img/mysql.png" class="card-img-top img-fluid" alt="card-image">
+                <a href="/quiz?category=sql" class="btn btn-primary stretched-link my-2 my-md-3 w-50 mx-auto  mb-2">Take Quiz</a>
+            </div>
+        </div>
+        <div class="col-md-4 col-12 mb-3 mb-md-4">
+            <div class="card text-center">
+                <img src="img/docker1.png" class="card-img-top img-fluid" alt="card-image">
+                <a href="/quiz?category=docker" class="btn btn-primary stretched-link my-2 my-md-3 w-50 mx-auto  mb-2">Take Quiz</a>
+            </div>
+        </div>
+        <div class="col-md-4 col-12 mb-3 mb-md-4">
+            <div class="card text-center ">
+                <img src="img/wordpress.png" class="card-img-top img-fluid" alt="card-image">
+                <a href="/quiz?category=cms" class="btn btn-primary stretched-link my-2 my-md-3 w-50 mx-auto  mb-2">Take Quiz</a>
+            </div>
+        </div>
+         <div class="col-md-4 col-12 mb-3 mb-md-4">
+            <div class="card text-center ">
+                <img src="img/webd.jpg" class="card-img-top img-fluid" alt="card-image">
+                <a href="/quiz?category=code" class="btn btn-primary stretched-link my-2 my-md-3 w-50 mx-auto  mb-2">Take Quiz</a>
+            </div>
+        </div>
+         <div class="col-md-4 col-12 mb-3 mb-md-4">
+            <div class="card text-center ">
+                <img src="img/bash.jpg" class="card-img-top img-fluid" alt="card-image">
+                <a href="/quiz?category=bash" class="btn btn-primary stretched-link my-2 my-md-3 w-50 mx-auto  mb-2">Take Quiz</a>
+            </div>
+        </div>
+         <div class="col-md-4 col-12 mb-3 mb-md-4">
+            <div class="card text-center ">
+                <img src="img/linux.jpg" class="card-img-top img-fluid" alt="card-image">
+                <a href="/quiz?category=linux" class="btn btn-primary stretched-link my-2 my-md-3 w-50 mx-auto  mb-2">Take Quiz</a>
+            </div>
+        </div>
+        </div>
+    </div>
+</section>
+<div class="d-flex  justify-content-center w-100 loadmore my-2 my-md-4">
+    <button class="btn btn-outline-primary loadbtn w-25" id="loadbtn"><i class="fas fa-angle-down px-2"></i>Load More</button>
+</div>
+<footer>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 250"><path fill="#BDCFCA" fill-opacity="1" d="M0,160L48,181.3C96,203,192,245,288,250.7C384,256,480,224,576,197.3C672,171,768,149,864,144C960,139,1056,149,1152,165.3C1248,181,1344,203,1392,213.3L1440,224L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"></path></svg>
+    <div class="container-fluid footer" id="footer">
+        <div class="row">
+            <div class="col-md-4 col-6 align-items-center justify-content-center d-flex">
+                <h2 class="text-white  font-weight-bolder"><span style="color:#3C318F !important;">Q</span>uiz<span style="color:#3C318F !important;">F</span>est</h2>
+            </div>
+            <div class="col-md-4 col-6 d-none d-sm-flex flex-column justify-content-around">
+                <h5 class="text-dark">Features:</h5>
+                <ul style="list-style: none;">
+                    <li>Test Your knowledge</li>
+                    <li>Be Prepared</li>
+                    <li>Recommend Us</li>
+                </ul>
+            </div>
+            <div class="col-md-4 col-6 d-flex flex-column justify-content-around">
+                <h5 class="text-dark">Find us on:</h5>
+                <ul style="list-style: none;" class="d-flex justify-content-around justify-content-md-start">
+                    <li><a href="#" class="text-dark"><i class="fab fa-2x fa-linkedin mr-md-3"></i></a></li>
+                    <li><a href="#"  class="text-dark"><i class="fab fa-2x fa-github-square mr-md-3"></i></a></li>
+                    <li><a href="#"  class="text-dark"><i class="fab fa-2x fa-twitter-square"></i></a></li>
+                </ul>
+            </div>
+            
+
+        </div>
+    </div>
+</footer>
+<script>
+$(document).ready(()=>{
+    $('#loadbtn').click(()=>{
+        $('#maindiv').after('<h3 class="text-center">We will add more topics soon...</h3>');
+    });
+
+
+});
+
+</script>
+
+</body>
+</html>

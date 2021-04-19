@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quiz</title>
+    <!--Boostrap 4 cdn link -->
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+		<!-- jQuery library -->
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+		<!-- Popper JS -->
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+		<!-- Latest compiled JavaScript -->
+		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
+		<link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+	    <link rel="icon" type="logo/png" href="img/loginlogo.png">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.5.0-2/css/all.min.css" integrity="sha512-uNOFYDWi8Y7/BN/9S2QDx/BVTEvSwdrZ53NHLgt+fDTdyQeOwmBpHrLrxOT3TQn78H0QKJWLvD7hsDOZ9Gk45A==" crossorigin="anonymous" />
+	    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        <link rel="preconnect" href="https://fonts.gstatic.com">
+        <link href="https://fonts.googleapis.com/css2?family=Oswald&display=swap" rel="stylesheet">
+        <style>
+            *{
+                margin: 0;
+                padding: 0;
+                box-sizing:border-box;
+            }
+            html {
+                scroll-behavior: smooth;
+            }
+            .main{
+                height:90vh !important;
+                background-color: #927e7e;
+                background:linear-gradient(to bottom, rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.9)),url('img/quizback.jpg') center/cover no-repeat fixed;
+            }
+            .main a{
+                border-radius: 20px;
+                font-size:1.2rem !important;
+            }
+            .headerbtn:hover{
+                transform:translate(2px,2px);
+            }
+            .card:hover{
+                transform:translate(1px,1px);
+
+            }
+            nav{
+                background:linear-gradient(to bottom, rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)),url('img/quizback.jpg') center/cover no-repeat fixed;
+
+            }
+            #collapsibleNavId>ul>li>a,.card>a{
+                font-size:1.2rem !important;
+                
+            }
+            #collapsibleNavId>ul>li>a:hover{
+                border-bottom:2px solid red;
+
+            }
+            .navbar-toggler{
+                background-color:#fff !important;
+                color:black;
+            }
+            .navbar-brand{
+                font-size:2.5rem;
+               font-family: 'Oswald', sans-serif;
+            }
+            
+
+
+        </style>
+</head>
+<body>
+    <div class="container-fluid">
+        <div class="row">
+            <nav class="navbar navbar-expand-sm  w-100">
+                <h1 class="navbar-brand text-white font-weight-bold"><span style="color:#c82333 !important;">Q</span>uiz<span style="color:#c82333 !important;">F</span>est</h1>
+                <button class="navbar-toggler d-lg-none" type="button" data-toggle="collapse" data-target="#collapsibleNavId" aria-controls="collapsibleNavId"
+                    aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="collapsibleNavId">
+                    <ul class="navbar-nav ml-auto mt-2 mt-lg-0">
+                        <li class="nav-item active mr-md-3">
+                            <a class="nav-link text-white" href="#">Home <span class="sr-only">(current)</span></a>
+                        </li>
+                        <li class="nav-item mr-md-3 mr-0">
+                            <a class="nav-link text-white" href="#topics">Topics</a>
+                        </li>
+                    </ul>
+                    <form class="form-inline my-2 my-lg-0">
+                        <input class="form-control mr-sm-2" type="text" placeholder="Search">
+                        <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+                    </form>
+                </div>
+            </nav>
+        </div>
+    </div>
+    <header>
+    <div class="container-fluid main d-flex justify-content-center align-items-center flex-column">
+            <h1 class="display-1 text-white font-weight-bold mb-md-5">Enhance Your Skills...</h1>
+        <div class="row w-100 d-flex justify-content-center">
+            <a href="#" class="btn btn-danger px-md-3 mr-md-3 mr-2 headerbtn">Take a random quiz</a>
+            <a href="#topics" class="btn btn-primary px-md-3 headerbtn">Choose a Specific Topic</a>
+
+
+        </div>
+    </div>
+    </header>
+    <h3 class="display-2 text-center my-md-5 my-2" id="topics">Our Top Topics</h3>
+    <section>
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-md-4 col-12 mb-3 mb-md-4">
+				<div class="card text-center ">
+					<img src="img/mysql.png" class="card-img-top img-fluid" alt="card-image">
+					<a href="/quiz?category=sql" class="btn btn-primary stretched-link my-2 my-md-3 w-50 mx-auto  mb-2">Take Quiz</a>
+				</div>
+			</div>
+            <div class="col-md-4 col-12 mb-3 mb-md-4">
+				<div class="card text-center ">
+					<img src="img/docker1.png" class="card-img-top img-fluid" alt="card-image">
+					<a href="/quiz?category=docker" class="btn btn-primary stretched-link my-2 my-md-3 w-50 mx-auto  mb-2">Take Quiz</a>
+				</div>
+			</div>
+            <div class="col-md-4 col-12 mb-3 mb-md-4">
+				<div class="card text-center ">
+					<img src="img/wordpress.png" class="card-img-top img-fluid" alt="card-image">
+					<a href="/quiz?category=cms" class="btn btn-primary stretched-link my-2 my-md-3 w-50 mx-auto  mb-2">Take Quiz</a>
+				</div>
+			</div>
+             <div class="col-md-4 col-12 mb-3 mb-md-4">
+				<div class="card text-center ">
+					<img src="img/webd.jpg" class="card-img-top img-fluid" alt="card-image">
+					<a href="/quiz?category=code" class="btn btn-primary stretched-link my-2 my-md-3 w-50 mx-auto  mb-2">Take Quiz</a>
+				</div>
+			</div>
+             <div class="col-md-4 col-12 mb-3 mb-md-4">
+				<div class="card text-center ">
+					<img src="img/bash.jpg" class="card-img-top img-fluid" alt="card-image">
+					<a href="/quiz?category=bash" class="btn btn-primary stretched-link my-2 my-md-3 w-50 mx-auto  mb-2">Take Quiz</a>
+				</div>
+			</div>
+             <div class="col-md-4 col-12 mb-3 mb-md-4">
+				<div class="card text-center ">
+					<img src="img/linux.jpg" class="card-img-top img-fluid" alt="card-image">
+					<a href="/quiz?category=linux" class="btn btn-primary stretched-link my-2 my-md-3 w-50 mx-auto  mb-2">Take Quiz</a>
+				</div>
+			</div>
+            </div>
+        </div>
+    </section>
+    <div class="d-flex justify-content-center w-100 loadmore my-2 my-md-4">
+        <button class="btn btn-outline-primary w-25"><i class="fas fa-angle-down px-2"></i>Load More</button>
+    </div>
+    <footer>
+        <div class="container-fluid mt-3">
+            <h6 class="text-center display-5">&copy; The Team</h6>
+        </div>
+    </footer>
+    
+    
+    
+</body>
+</html>

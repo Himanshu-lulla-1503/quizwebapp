@@ -142,7 +142,10 @@
                 <h1 class="navbar-brand text-white font-weight-bold"><span style="color:#3C318F !important;">Q</span>uiz<span style="color:#3C318F !important;">F</span>est</h1>
                 <button class="navbar-toggler d-lg-none" type="button" data-toggle="collapse" data-target="#collapsibleNavId" aria-controls="collapsibleNavId"
                     aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
+                    <span><svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px"
+width="30" height="30"
+viewBox="0 0 172 172"
+style=" fill:#000000;"><g fill="none" fill-rule="nonzero" stroke="none" stroke-width="1" stroke-linecap="butt" stroke-linejoin="miter" stroke-miterlimit="10" stroke-dasharray="" stroke-dashoffset="0" font-family="none" font-weight="none" font-size="none" text-anchor="none" style="mix-blend-mode: normal"><path d="M0,172v-172h172v172z" fill="none"></path><g fill="#3c318f"><path d="M143.33333,100.33333h-114.66667c-7.91917,0 -14.33333,-6.41417 -14.33333,-14.33333v0c0,-7.91917 6.41417,-14.33333 14.33333,-14.33333h114.66667c7.91917,0 14.33333,6.41417 14.33333,14.33333v0c0,7.91917 -6.41417,14.33333 -14.33333,14.33333z" opacity="0.35"></path><path d="M143.33333,50.16667h-114.66667c-7.91917,0 -14.33333,-6.41417 -14.33333,-14.33333v0c0,-7.91917 6.41417,-14.33333 14.33333,-14.33333h114.66667c7.91917,0 14.33333,6.41417 14.33333,14.33333v0c0,7.91917 -6.41417,14.33333 -14.33333,14.33333z"></path><path d="M143.33333,150.5h-114.66667c-7.91917,0 -14.33333,-6.41417 -14.33333,-14.33333v0c0,-7.91917 6.41417,-14.33333 14.33333,-14.33333h114.66667c7.91917,0 14.33333,6.41417 14.33333,14.33333v0c0,7.91917 -6.41417,14.33333 -14.33333,14.33333z"></path></g></g></svg></span>
                 </button>
                 <div class="collapse navbar-collapse" id="collapsibleNavId">
                     <ul class="navbar-nav ml-auto mt-2 mt-lg-0 text-center">
@@ -156,7 +159,7 @@
                             <a class="nav-link text-dark" href="#footer">Contact-Us</a>
                         </li>
                         <li class="nav-item mr-md-3 mr-0">
-                            <a class="nav-link text-dark" href="/"><i class="fas fa-x fa-sign-out-alt"></i></a>
+                            <a class="nav-link text-dark" href="/logout"><i class="fas fa-x fa-sign-out-alt"></i></a>
                         </li>
                         
                     </ul>
@@ -265,6 +268,7 @@
 <script>
 $(document).ready(()=>{
     $('#loadbtn').click(()=>{
+        $(this).hide();
         $('#maindiv').after('<h3 class="text-center">We will add more topics soon...</h3>');
     });
 

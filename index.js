@@ -2,15 +2,39 @@ const express = require('express');
 const app = express();
 const fetch = require("node-fetch");
 const path = require('path');
+require('dotenv').config();
 const bcrypt = require('bcryptjs');
 const signup=require('./database/conn.js');
 const mongoose= require('mongoose');
+const session=require('express-session');
+const MongoDbSession=require('connect-mongodb-session')(session);
+
+const storesession= new MongoDbSession({
+    uri:"mongodb+srv://Himanshu_Lulla:herobaby007@gmail.com@cluster0.fg2gf.mongodb.net/himanshu?retryWrites=true&w=majority",
+    collection:'mysessions'
+});
+app.use(session({
+    secret:process.env.SECRET_KEY,
+    resave:false,
+    saveUninitialized:false,
+    store:storesession
+}));
 const port= process.env.PORT || 8000;
 app.set('view engine','hbs');
 app.use(express.json());
 app.use(express.urlencoded({extended:false}));
 const staticpath=path.resolve('./public');
 app.use(express.static(staticpath));
+
+const authentication=(req,res,next)=>{
+    if(!req.session.isAuth){
+        res.redirect('/');
+    }
+    else{
+        next();
+    }
+
+}
 app.get('/',(req,res)=>{
     res.render('login',{
         flag:false
@@ -20,10 +44,8 @@ app.get('/signup',(req,res)=>{
     res.render('signup');
 
 });
-app.post('/signup',(req,res)=>{
+app.post('/signup',async(req,res)=>{
     let {name,email,phoneno,password,repassword}=req.body;
-
-    const hash = async ()=>{
         try{
         password= await bcrypt.hash(password,10);
         repassword= await bcrypt.hash(repassword,10);
@@ -35,64 +57,47 @@ app.post('/signup',(req,res)=>{
             Repassword:repassword
     
         });
-        return document
-        }catch(err){
-            console.log(err);
-        }
-    }
-    
-    
-    const savedata= async()=>{
-        try{
-        const document=await hash();
-        const data= await document.save();
+        await document.save();
         res.redirect('/');
-
         }catch(err){
             console.log(err);
-        }
-
-    }
-    savedata();
-    
+            res.statusCode=401;
+            res.json({'error':'User with email id already exists'});
+        }    
 });
-app.post('/',(req,res)=>{
+app.post('/',async(req,res)=>{
     let {username,password} = req.body;
-    const verify = async()=>{
         try{
         const data= await signup.findOne({Email:username});
-        if(data==null){
-            res.status(401);
-            res.render('login',{
-                flag:true
-            });
+        if(!data){
+            res.render('signup');
         }
         else{
             const pass = data.Password;
-            const verifypass = async()=>{
                 const status = await bcrypt.compare(password,pass);
-                if(status===true){
-                    res.redirect('quizhomepage');
-                }
-                else{
+                if(!status){
                     res.status(401);
                     res.render('login',{
                         flag:true
                     });
+                   
+                }
+                else{
+                    req.session.isAuth=true;
+                    res.redirect('quizhomepage');
                 }
             }
-            verifypass(); 
         }
-    }catch(err){
-        console.log(err);
-    }
-}
-verify();
+        catch(err){
+            console.log(err);
+        }
 });
-app.get('/quizhomepage',(req,res)=>{
+
+            
+app.get('/quizhomepage',authentication,(req,res)=>{
     res.render('quizhomepage');
 });
-app.get('/quiz',(req,res)=>{
+app.get('/quiz',authentication,(req,res)=>{
     const category = req.query.category;
     const fetchdata = async (category)=>{
         try{
@@ -112,6 +117,13 @@ app.get('/quiz',(req,res)=>{
     }
     fetchdata(category);
 });
+app.get('/logout',(req,res)=>{
+    req.session.destroy((err)=>{
+        if(err) throw err;
+        res.redirect('/');
+    });
+});
+
 app.get('*',(req,res)=>{
     res.render('error');
 });

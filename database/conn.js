@@ -17,7 +17,8 @@ const signupschema=new mongoose.Schema({
     },
     Email:{
         type:String,
-        required:true
+        required:true,
+        unique:true
     },
     Phoneno:{
         type:Number,
@@ -31,6 +32,8 @@ const signupschema=new mongoose.Schema({
         type:String,
         required:true
     }
+},{
+    timestamps:true
 
 },{versionKey:false });
 const signup = new mongoose.model("signup",signupschema);

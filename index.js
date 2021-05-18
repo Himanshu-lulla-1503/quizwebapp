@@ -36,31 +36,32 @@ const authentication=(req,res,next)=>{
 
 }
 app.get('/',(req,res)=>{
-    res.render('login',{
+    res.render('login1',{
         flag:false
     });
 });
 app.get('/signup',(req,res)=>{
-    res.render('signup');
+    res.render('signup1');
 
 });
 app.post('/signup',async(req,res)=>{
-    let {name,email,phoneno,password,repassword}=req.body;
+    console.log(req.body);
+    let {Username,Email,Phone,Password,RePassword}=req.body;
         try{
-        password= await bcrypt.hash(password,10);
-        repassword= await bcrypt.hash(repassword,10);
+        Password= await bcrypt.hash(Password,10);
+        RePassword= await bcrypt.hash(RePassword,10);
         var document = new signup({
-            Username:name,
-            Email:email,
-            Phoneno:phoneno,
-            Password:password,
-            Repassword:repassword
+            Username:Username,
+            Email:Email,
+            Phoneno:Phone,
+            Password:Password,
+            Repassword:RePassword
     
         });
         await document.save();
         res.redirect('/');
         }catch(err){
-            console.log(err);
+            console.log(err.message);
             res.statusCode=401;
             res.json({'error':'User with email id already exists'});
         }    
@@ -70,14 +71,14 @@ app.post('/',async(req,res)=>{
         try{
         const data= await signup.findOne({Email:username});
         if(!data){
-            res.render('signup');
+            res.render('signup1');
         }
         else{
             const pass = data.Password;
                 const status = await bcrypt.compare(password,pass);
                 if(!status){
                     res.status(401);
-                    res.render('login',{
+                    res.render('login1',{
                         flag:true
                     });
                    

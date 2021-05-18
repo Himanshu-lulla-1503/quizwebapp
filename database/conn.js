@@ -21,7 +21,7 @@ const signupschema=new mongoose.Schema({
         unique:true
     },
     Phoneno:{
-        type:Number,
+        type:String,
         required:true
     },
     Password:{
